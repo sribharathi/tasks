@@ -1,0 +1,16 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "description": "Sample services to demonstrate netflix conductor orchestration",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "sribharathi1427@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "restify": "^5.0.0",
+    "restify-plugins": "^1.6.0"
+  }
+}
