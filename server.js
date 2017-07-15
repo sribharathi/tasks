@@ -40,4 +40,4 @@ server.post('/shipments/_ship', (req, res, next) => {
 })
 
 
-server.listen(process.env.PORT || 3000, ()=> (console.log(`Server started at ${process.env.port || 3000}`)));
+server.listen(process.env.PORT || 8080, ()=> (console.log(`Server started at ${process.env.port || 8080}`)));
