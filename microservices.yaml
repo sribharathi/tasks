@@ -19,7 +19,7 @@ spec:
           protocol: TCP
         env:
           - name:  PORT
-            value:  8080
+            value:  "8080"
       - name: order-ms
         image: sribharathi/shipment-task
         ports:
@@ -27,7 +27,7 @@ spec:
           protocol: TCP
         env:
           - name:  PORT
-            value:  8082
+            value:  "8082"
       - name: product-ms
         image: sribharathi/shipment-task
         ports:
@@ -35,7 +35,7 @@ spec:
           protocol: TCP
         env:
           - name:  PORT
-            value:  8081      
+            value:  "8081"      
 ---
 kind: Service
 apiVersion: v1
