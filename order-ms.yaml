@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: order-ms
+  labels:
+    run: order-ms
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: order-ms
+    spec:
+      containers:
+      - name: order-ms
+        image: sribharathi/shipment-task
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  order-ms-svc
+spec:
+  selector:
+    run:  order-ms
+  type:  NodePort
+  ports:
+  - name:  order-ms
+    port:  8080
+    targetPort:  8080

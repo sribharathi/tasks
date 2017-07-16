@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: product-ms
+  labels:
+    run: product-ms
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: product-ms
+    spec:
+      containers:
+      - name: product-ms
+        image: sribharathi/shipment-task
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  product-ms-svc
+spec:
+  selector:
+    run:  product-ms
+  type:  NodePort
+  ports:
+  - name:  product-ms
+    port:  8080
+    targetPort:  8080
