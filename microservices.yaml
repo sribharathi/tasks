@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: shipment-ms
+  labels:
+    run: shipment-ms
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: shipment-ms
+    spec:
+      containers:
+      - name: ship-ms
+        image: sribharathi/shipment-task
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      - name: order-ms
+        image: sribharathi/shipment-task
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      - name: product-ms
+        image: sribharathi/shipment-task
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  shipment-ms-svc
+spec:
+  selector:
+    run:  shipment-ms
+  type:  NodePort
+  ports:
+  - name:  ship-ms
+    port:  8080
+    targetPort:  8080
+  - name:  product-ms
+    port:  8080
+    targetPort:  8081
+  - name:  order-ms
+    port:  8080
+    targetPort:  8082
