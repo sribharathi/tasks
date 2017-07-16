@@ -42,8 +42,8 @@ spec:
     port:  8080
     targetPort:  8080
   - name:  product-ms
-    port:  8080
-    targetPort:  8081
+    port:  8081
+    targetPort:  8080
   - name:  order-ms
-    port:  8080
-    targetPort:  8082
+    port:  8082
+    targetPort:  8080
