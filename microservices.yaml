@@ -17,17 +17,25 @@ spec:
         ports:
         - containerPort: 8080
           protocol: TCP
+        env:
+          - name:  PORT
+            value:  8080
       - name: order-ms
         image: sribharathi/shipment-task
         ports:
-        - containerPort: 8080
+        - containerPort: 8082
           protocol: TCP
+        env:
+          - name:  PORT
+            value:  8082
       - name: product-ms
         image: sribharathi/shipment-task
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
           protocol: TCP
-      
+        env:
+          - name:  PORT
+            value:  8081      
 ---
 kind: Service
 apiVersion: v1
@@ -43,7 +51,7 @@ spec:
     targetPort:  8080
   - name:  product-ms
     port:  8081
-    targetPort:  8080
+    targetPort:  8081
   - name:  order-ms
     port:  8082
-    targetPort:  8080
+    targetPort:  8082
